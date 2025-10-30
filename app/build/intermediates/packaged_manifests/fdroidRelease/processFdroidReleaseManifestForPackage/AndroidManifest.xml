@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="io.heckel.ntfy"
+    android:versionCode="46"
+    android:versionName="1.17.13" >
+
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="35" />
+
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- For instant delivery foregrounds service -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" /> <!-- For instant delivery foregrounds service on SDK >= 34 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- To keep foreground service awake; soon not needed anymore -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- To restart service on reboot -->
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- Incoming notifications should be able to vibrate the phone -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" /> <!-- Only required on SDK <= 28 -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" /> <!-- To reschedule the websocket retry -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- As of Android 13, we need to ask for permission to post notifications -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <permission
+        android:name="io.heckel.ntfy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="io.heckel.ntfy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- Allows to ignore battery optimization without going to the settings -->
+    <application
+        android:name="io.heckel.ntfy.app.Application"
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:extractNativeLibs="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true" >
+
+        <!-- Main activity -->
+        <activity
+            android:name="io.heckel.ntfy.ui.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Detail activity -->
+        <activity
+            android:name="io.heckel.ntfy.ui.DetailActivity"
+            android:exported="true"
+            android:parentActivityName="io.heckel.ntfy.ui.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MainActivity" />
+
+            <!-- Open ntfy:// links with the app -->
+            <intent-filter android:label="@string/app_name" >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="ntfy" />
+            </intent-filter>
+        </activity>
+
+        <!-- Settings activity -->
+        <activity
+            android:name="io.heckel.ntfy.ui.SettingsActivity"
+            android:parentActivityName="io.heckel.ntfy.ui.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MainActivity" />
+        </activity>
+
+        <!-- Detail settings activity -->
+        <activity
+            android:name="io.heckel.ntfy.ui.DetailSettingsActivity"
+            android:parentActivityName="io.heckel.ntfy.ui.DetailActivity" >
+        </activity>
+
+        <!-- Share file activity, incoming files/shares -->
+        <activity
+            android:name="io.heckel.ntfy.ui.ShareActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" />
+                <data android:mimeType="text/*" />
+                <data android:mimeType="audio/*" />
+                <data android:mimeType="video/*" />
+                <data android:mimeType="application/*" />
+            </intent-filter>
+        </activity>
+
+        <!-- Hack: Activity used for "view" action button with "clear=true" (to be able to cancel notifications and show a URL) -->
+        <activity
+            android:name="io.heckel.ntfy.msg.NotificationService$ViewActionWithClearActivity"
+            android:exported="false" >
+        </activity>
+
+        <!-- Subscriber foreground service for hosts other than ntfy.sh -->
+        <service
+            android:name="io.heckel.ntfy.service.SubscriberService"
+            android:foregroundServiceType="specialUse" >
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="This is the main feature of this application. The foreground notification displays the connectivity status to the configurable remote server and the service notifies the user when a new message has been published on the remote server." />
+        </service>
+
+        <!-- Subscriber service restart on reboot -->
+        <receiver
+            android:name="io.heckel.ntfy.service.SubscriberService$BootStartReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Subscriber service restart on destruction -->
+        <receiver
+            android:name="io.heckel.ntfy.service.SubscriberService$AutoRestartReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!-- Broadcast receiver to send messages via intents -->
+        <receiver
+            android:name="io.heckel.ntfy.msg.BroadcastService$BroadcastReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="io.heckel.ntfy.SEND_MESSAGE" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Broadcast receiver for UnifiedPush; must match https://github.com/UnifiedPush/UP-spec/blob/main/specifications.md -->
+        <receiver
+            android:name="io.heckel.ntfy.up.BroadcastReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="org.unifiedpush.android.distributor.REGISTER" />
+                <action android:name="org.unifiedpush.android.distributor.UNREGISTER" />
+                <action android:name="org.unifiedpush.android.distributor.feature.BYTES_MESSAGE" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Broadcast receiver for the "Download"/"Cancel" attachment action in the notification popup -->
+        <receiver
+            android:name="io.heckel.ntfy.msg.NotificationService$UserActionBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
+
+        <!-- Broadcast receiver for when the notification is swiped away (currently only to cancel the insistent sound) -->
+        <receiver
+            android:name="io.heckel.ntfy.msg.NotificationService$DeleteBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
+
+        <!-- Firebase messaging (note that this is empty in the F-Droid flavor) -->
+        <service
+            android:name="io.heckel.ntfy.firebase.FirebaseService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="false" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_notification" />
+
+        <!--
+             FileProvider required for older Android versions (<= P), to allow passing the file URI in the open intent.
+             Avoids "exposed beyond app through Intent.getData" exception, see see https://stackoverflow.com/a/57288352/1440785
+        -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="io.heckel.ntfy.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="io.heckel.ntfy.androidx-startup"
+            android:exported="false" >
+            <meta-data
+                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+                android:value="androidx.startup" />
+        </provider>
+
+        <service
+            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+            android:directBootAware="false"
+            android:enabled="@bool/enable_system_alarm_service_default"
+            android:exported="false" />
+        <service
+            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+            android:directBootAware="false"
+            android:enabled="@bool/enable_system_job_service_default"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name="androidx.work.impl.foreground.SystemForegroundService"
+            android:directBootAware="false"
+            android:enabled="@bool/enable_system_foreground_service_default"
+            android:exported="false" />
+
+        <receiver
+            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+            android:directBootAware="false"
+            android:enabled="true"
+            android:exported="false" />
+        <receiver
+            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+            android:directBootAware="false"
+            android:enabled="false"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+            android:directBootAware="false"
+            android:enabled="false"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY" />
+                <action android:name="android.intent.action.BATTERY_LOW" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+            android:directBootAware="false"
+            android:enabled="false"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+            android:directBootAware="false"
+            android:enabled="false"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+            android:directBootAware="false"
+            android:enabled="false"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+            android:directBootAware="false"
+            android:enabled="@bool/enable_system_alarm_service_default"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+            android:directBootAware="false"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.DUMP" >
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+            </intent-filter>
+        </receiver>
+
+        <uses-library
+            android:name="androidx.window.extensions"
+            android:required="false" />
+        <uses-library
+            android:name="androidx.window.sidecar"
+            android:required="false" />
+
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:directBootAware="true"
+            android:exported="false" />
+
+        <provider
+            android:name="com.squareup.picasso.PicassoProvider"
+            android:authorities="io.heckel.ntfy.com.squareup.picasso"
+            android:exported="false" />
+
+        <receiver
+            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+            android:directBootAware="false"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.DUMP" >
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

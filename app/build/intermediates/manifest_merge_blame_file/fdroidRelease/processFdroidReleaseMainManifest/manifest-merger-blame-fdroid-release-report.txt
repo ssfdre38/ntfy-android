@@ -1,0 +1,648 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="io.heckel.ntfy"
+4    android:versionCode="46"
+5    android:versionName="1.17.13" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="35" />
+10
+11    <!-- Permissions -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:5:5-66
+12-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:5:22-64
+13    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- For instant delivery foregrounds service -->
+13-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:6:5-76
+13-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:6:22-74
+14    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" /> <!-- For instant delivery foregrounds service on SDK >= 34 -->
+14-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:7:5-88
+14-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:7:22-86
+15    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- To keep foreground service awake; soon not needed anymore -->
+15-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:8:5-67
+15-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:8:22-65
+16    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- To restart service on reboot -->
+16-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:9:5-80
+16-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:9:22-78
+17    <uses-permission android:name="android.permission.VIBRATE" /> <!-- Incoming notifications should be able to vibrate the phone -->
+17-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:10:5-65
+17-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:10:22-63
+18    <uses-permission
+18-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:11:5-107
+19        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+19-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:11:22-78
+20        android:maxSdkVersion="28" /> <!-- Only required on SDK <= 28 -->
+20-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:11:79-105
+21    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" /> <!-- To reschedule the websocket retry -->
+21-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:12:5-78
+21-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:12:22-76
+22    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- As of Android 13, we need to ask for permission to post notifications -->
+22-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:13:5-76
+22-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:13:22-74
+23    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+23-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:14:5-94
+23-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:14:22-92
+24    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+24-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:24:5-79
+24-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:24:22-76
+25
+26    <permission
+26-->[androidx.core:core:1.10.1] /home/ssfdre38/.gradle/caches/8.13/transforms/c38c82ea85d31b2ffb3dd7fa894c4f16/transformed/core-1.10.1/AndroidManifest.xml:22:5-24:47
+27        android:name="io.heckel.ntfy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+27-->[androidx.core:core:1.10.1] /home/ssfdre38/.gradle/caches/8.13/transforms/c38c82ea85d31b2ffb3dd7fa894c4f16/transformed/core-1.10.1/AndroidManifest.xml:23:9-81
+28        android:protectionLevel="signature" />
+28-->[androidx.core:core:1.10.1] /home/ssfdre38/.gradle/caches/8.13/transforms/c38c82ea85d31b2ffb3dd7fa894c4f16/transformed/core-1.10.1/AndroidManifest.xml:24:9-44
+29
+30    <uses-permission android:name="io.heckel.ntfy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- Allows to ignore battery optimization without going to the settings -->
+30-->[androidx.core:core:1.10.1] /home/ssfdre38/.gradle/caches/8.13/transforms/c38c82ea85d31b2ffb3dd7fa894c4f16/transformed/core-1.10.1/AndroidManifest.xml:26:5-97
+30-->[androidx.core:core:1.10.1] /home/ssfdre38/.gradle/caches/8.13/transforms/c38c82ea85d31b2ffb3dd7fa894c4f16/transformed/core-1.10.1/AndroidManifest.xml:26:22-94
+31    <application
+31-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:16:5-178:19
+32        android:name="io.heckel.ntfy.app.Application"
+32-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:17:13-44
+33        android:allowBackup="true"
+33-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:18:13-39
+34        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+34-->[androidx.core:core:1.10.1] /home/ssfdre38/.gradle/caches/8.13/transforms/c38c82ea85d31b2ffb3dd7fa894c4f16/transformed/core-1.10.1/AndroidManifest.xml:28:18-86
+35        android:extractNativeLibs="true"
+36        android:icon="@mipmap/ic_launcher"
+36-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:19:13-47
+37        android:label="@string/app_name"
+37-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:20:13-45
+38        android:networkSecurityConfig="@xml/network_security_config"
+38-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:24:13-73
+39        android:roundIcon="@mipmap/ic_launcher"
+39-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:21:13-52
+40        android:supportsRtl="true"
+40-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:22:13-39
+41        android:theme="@style/AppTheme"
+41-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:23:13-44
+42        android:usesCleartextTraffic="true" >
+42-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:25:13-48
+43
+44        <!-- Main activity -->
+45        <activity
+45-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:28:9-36:20
+46            android:name="io.heckel.ntfy.ui.MainActivity"
+46-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:29:17-48
+47            android:exported="true"
+47-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:31:13-36
+48            android:label="@string/app_name" >
+48-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:30:17-49
+49            <intent-filter>
+49-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:32:13-35:29
+50                <action android:name="android.intent.action.MAIN" />
+50-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:33:17-68
+50-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:33:25-66
+51
+52                <category android:name="android.intent.category.LAUNCHER" />
+52-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:34:17-76
+52-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:34:27-74
+53            </intent-filter>
+54        </activity>
+55
+56        <!-- Detail activity -->
+57        <activity
+57-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:39:9-54:20
+58            android:name="io.heckel.ntfy.ui.DetailActivity"
+58-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:40:17-50
+59            android:exported="true"
+59-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:42:17-40
+60            android:parentActivityName="io.heckel.ntfy.ui.MainActivity" >
+60-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:41:17-62
+61            <meta-data
+61-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:43:13-45:55
+62                android:name="android.support.PARENT_ACTIVITY"
+62-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:44:21-67
+63                android:value=".ui.MainActivity" />
+63-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:45:21-53
+64
+65            <!-- Open ntfy:// links with the app -->
+66            <intent-filter android:label="@string/app_name" >
+66-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:48:13-53:29
+66-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:48:28-60
+67                <action android:name="android.intent.action.VIEW" />
+67-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:49:17-69
+67-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:49:25-66
+68
+69                <category android:name="android.intent.category.DEFAULT" />
+69-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:50:17-76
+69-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:50:27-73
+70                <category android:name="android.intent.category.BROWSABLE" />
+70-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:51:17-78
+70-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:51:27-75
+71
+72                <data android:scheme="ntfy" />
+72-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:52:17-47
+72-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:52:23-44
+73            </intent-filter>
+74        </activity>
+75
+76        <!-- Settings activity -->
+77        <activity
+77-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:57:9-63:20
+78            android:name="io.heckel.ntfy.ui.SettingsActivity"
+78-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:58:17-52
+79            android:parentActivityName="io.heckel.ntfy.ui.MainActivity" >
+79-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:59:17-62
+80            <meta-data
+80-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:43:13-45:55
+81                android:name="android.support.PARENT_ACTIVITY"
+81-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:44:21-67
+82                android:value=".ui.MainActivity" />
+82-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:45:21-53
+83        </activity>
+84
+85        <!-- Detail settings activity -->
+86        <activity
+86-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:66:9-69:20
+87            android:name="io.heckel.ntfy.ui.DetailSettingsActivity"
+87-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:67:17-58
+88            android:parentActivityName="io.heckel.ntfy.ui.DetailActivity" >
+88-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:68:17-64
+89        </activity>
+90
+91        <!-- Share file activity, incoming files/shares -->
+92        <activity
+92-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:72:9-82:20
+93            android:name="io.heckel.ntfy.ui.ShareActivity"
+93-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:72:19-51
+94            android:exported="true" >
+94-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:72:52-75
+95            <intent-filter>
+95-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:73:13-81:29
+96                <action android:name="android.intent.action.SEND" />
+96-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:74:17-69
+96-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:74:25-66
+97
+98                <category android:name="android.intent.category.DEFAULT" />
+98-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:50:17-76
+98-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:50:27-73
+99
+100                <data android:mimeType="image/*" />
+100-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:52:17-47
+100-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:76:23-49
+101                <data android:mimeType="text/*" />
+101-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:52:17-47
+101-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:76:23-49
+102                <data android:mimeType="audio/*" />
+102-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:52:17-47
+102-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:76:23-49
+103                <data android:mimeType="video/*" />
+103-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:52:17-47
+103-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:76:23-49
+104                <data android:mimeType="application/*" />
+104-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:52:17-47
+104-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:76:23-49
+105            </intent-filter>
+106        </activity>
+107
+108        <!-- Hack: Activity used for "view" action button with "clear=true" (to be able to cancel notifications and show a URL) -->
+109        <activity
+109-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:85:9-88:20
+110            android:name="io.heckel.ntfy.msg.NotificationService$ViewActionWithClearActivity"
+110-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:86:17-84
+111            android:exported="false" >
+111-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:87:17-41
+112        </activity>
+113
+114        <!-- Subscriber foreground service for hosts other than ntfy.sh -->
+115        <service
+115-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:91:9-97:19
+116            android:name="io.heckel.ntfy.service.SubscriberService"
+116-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:92:13-54
+117            android:foregroundServiceType="specialUse" >
+117-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:93:13-55
+118            <property
+118-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:94:13-96:270
+119                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+119-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:95:17-76
+120                android:value="This is the main feature of this application. The foreground notification displays the connectivity status to the configurable remote server and the service notifies the user when a new message has been published on the remote server." />
+120-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:96:17-267
+121        </service>
+122
+123        <!-- Subscriber service restart on reboot -->
+124        <receiver
+124-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:100:9-108:20
+125            android:name="io.heckel.ntfy.service.SubscriberService$BootStartReceiver"
+125-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:101:17-76
+126            android:enabled="true"
+126-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:102:17-39
+127            android:exported="true" >
+127-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:103:13-36
+128            <intent-filter>
+128-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:104:13-107:29
+129                <action android:name="android.intent.action.BOOT_COMPLETED" />
+129-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:105:17-78
+129-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:105:25-76
+130                <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
+130-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:106:17-106
+130-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:106:25-104
+131            </intent-filter>
+132        </receiver>
+133
+134        <!-- Subscriber service restart on destruction -->
+135        <receiver
+135-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:111:9-114:43
+136            android:name="io.heckel.ntfy.service.SubscriberService$AutoRestartReceiver"
+136-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:112:17-78
+137            android:enabled="true"
+137-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:113:17-39
+138            android:exported="false" />
+138-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:114:17-41
+139
+140        <!-- Broadcast receiver to send messages via intents -->
+141        <receiver
+141-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:117:9-124:20
+142            android:name="io.heckel.ntfy.msg.BroadcastService$BroadcastReceiver"
+142-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:118:17-71
+143            android:enabled="true"
+143-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:119:17-39
+144            android:exported="true" >
+144-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:120:17-40
+145            <intent-filter>
+145-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:121:13-123:29
+146                <action android:name="io.heckel.ntfy.SEND_MESSAGE" />
+146-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:122:17-69
+146-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:122:25-67
+147            </intent-filter>
+148        </receiver>
+149
+150        <!-- Broadcast receiver for UnifiedPush; must match https://github.com/UnifiedPush/UP-spec/blob/main/specifications.md -->
+151        <receiver
+151-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:127:9-136:20
+152            android:name="io.heckel.ntfy.up.BroadcastReceiver"
+152-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:128:17-53
+153            android:enabled="true"
+153-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:129:17-39
+154            android:exported="true" >
+154-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:130:17-40
+155            <intent-filter>
+155-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:131:13-135:29
+156                <action android:name="org.unifiedpush.android.distributor.REGISTER" />
+156-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:132:17-86
+156-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:132:25-84
+157                <action android:name="org.unifiedpush.android.distributor.UNREGISTER" />
+157-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:133:17-88
+157-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:133:25-86
+158                <action android:name="org.unifiedpush.android.distributor.feature.BYTES_MESSAGE" />
+158-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:134:17-99
+158-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:134:25-97
+159            </intent-filter>
+160        </receiver>
+161
+162        <!-- Broadcast receiver for the "Download"/"Cancel" attachment action in the notification popup -->
+163        <receiver
+163-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:139:9-143:20
+164            android:name="io.heckel.ntfy.msg.NotificationService$UserActionBroadcastReceiver"
+164-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:140:17-84
+165            android:enabled="true"
+165-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:141:17-39
+166            android:exported="false" >
+166-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:142:17-41
+167        </receiver>
+168
+169        <!-- Broadcast receiver for when the notification is swiped away (currently only to cancel the insistent sound) -->
+170        <receiver
+170-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:146:9-150:20
+171            android:name="io.heckel.ntfy.msg.NotificationService$DeleteBroadcastReceiver"
+171-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:147:17-80
+172            android:enabled="true"
+172-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:148:17-39
+173            android:exported="false" >
+173-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:149:17-41
+174        </receiver>
+175
+176        <!-- Firebase messaging (note that this is empty in the F-Droid flavor) -->
+177        <service
+177-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:153:9-159:19
+178            android:name="io.heckel.ntfy.firebase.FirebaseService"
+178-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:154:17-57
+179            android:exported="false" >
+179-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:155:17-41
+180            <intent-filter>
+180-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:156:13-158:29
+181                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+181-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:157:17-77
+181-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:157:25-75
+182            </intent-filter>
+183        </service>
+184
+185        <meta-data
+185-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:160:9-162:40
+186            android:name="firebase_analytics_collection_enabled"
+186-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:161:17-69
+187            android:value="false" />
+187-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:162:17-38
+188        <meta-data
+188-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:163:9-165:63
+189            android:name="com.google.firebase.messaging.default_notification_icon"
+189-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:164:17-87
+190            android:resource="@drawable/ic_notification" />
+190-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:165:17-61
+191
+192        <!--
+193             FileProvider required for older Android versions (<= P), to allow passing the file URI in the open intent.
+194             Avoids "exposed beyond app through Intent.getData" exception, see see https://stackoverflow.com/a/57288352/1440785
+195        -->
+196        <provider
+197            android:name="androidx.core.content.FileProvider"
+197-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:170:17-66
+198            android:authorities="io.heckel.ntfy.provider"
+198-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:171:17-64
+199            android:exported="false"
+199-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:172:17-41
+200            android:grantUriPermissions="true" >
+200-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:173:17-51
+201            <meta-data
+201-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:174:13-176:57
+202                android:name="android.support.FILE_PROVIDER_PATHS"
+202-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:175:21-71
+203                android:resource="@xml/file_paths" />
+203-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:176:21-55
+204        </provider>
+205        <provider
+205-->[androidx.emoji2:emoji2:1.2.0] /home/ssfdre38/.gradle/caches/8.13/transforms/11f88bad343eccb52db8c28111b8b90f/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+206            android:name="androidx.startup.InitializationProvider"
+206-->[androidx.emoji2:emoji2:1.2.0] /home/ssfdre38/.gradle/caches/8.13/transforms/11f88bad343eccb52db8c28111b8b90f/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+207            android:authorities="io.heckel.ntfy.androidx-startup"
+207-->[androidx.emoji2:emoji2:1.2.0] /home/ssfdre38/.gradle/caches/8.13/transforms/11f88bad343eccb52db8c28111b8b90f/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+208            android:exported="false" >
+208-->[androidx.emoji2:emoji2:1.2.0] /home/ssfdre38/.gradle/caches/8.13/transforms/11f88bad343eccb52db8c28111b8b90f/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+209            <meta-data
+209-->[androidx.emoji2:emoji2:1.2.0] /home/ssfdre38/.gradle/caches/8.13/transforms/11f88bad343eccb52db8c28111b8b90f/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+210                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+210-->[androidx.emoji2:emoji2:1.2.0] /home/ssfdre38/.gradle/caches/8.13/transforms/11f88bad343eccb52db8c28111b8b90f/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+211                android:value="androidx.startup" />
+211-->[androidx.emoji2:emoji2:1.2.0] /home/ssfdre38/.gradle/caches/8.13/transforms/11f88bad343eccb52db8c28111b8b90f/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+212            <meta-data
+212-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:34:13-36:52
+213                android:name="androidx.work.WorkManagerInitializer"
+213-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:35:17-68
+214                android:value="androidx.startup" />
+214-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:36:17-49
+215            <meta-data
+215-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/ssfdre38/.gradle/caches/8.13/transforms/3805d30a7f1497df9f37a09a07b36c29/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
+216                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+216-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/ssfdre38/.gradle/caches/8.13/transforms/3805d30a7f1497df9f37a09a07b36c29/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
+217                android:value="androidx.startup" />
+217-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/ssfdre38/.gradle/caches/8.13/transforms/3805d30a7f1497df9f37a09a07b36c29/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
+218            <meta-data
+218-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+219                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+219-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+220                android:value="androidx.startup" />
+220-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+221        </provider>
+222
+223        <service
+223-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:39:9-45:35
+224            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+224-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:40:13-88
+225            android:directBootAware="false"
+225-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:41:13-44
+226            android:enabled="@bool/enable_system_alarm_service_default"
+226-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:42:13-72
+227            android:exported="false" />
+227-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:43:13-37
+228        <service
+228-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:46:9-52:35
+229            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+229-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:47:13-84
+230            android:directBootAware="false"
+230-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:48:13-44
+231            android:enabled="@bool/enable_system_job_service_default"
+231-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:49:13-70
+232            android:exported="true"
+232-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:50:13-36
+233            android:permission="android.permission.BIND_JOB_SERVICE" />
+233-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:51:13-69
+234        <service
+234-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:53:9-59:35
+235            android:name="androidx.work.impl.foreground.SystemForegroundService"
+235-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:54:13-81
+236            android:directBootAware="false"
+236-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:55:13-44
+237            android:enabled="@bool/enable_system_foreground_service_default"
+237-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:56:13-77
+238            android:exported="false" />
+238-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:57:13-37
+239
+240        <receiver
+240-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:61:9-66:35
+241            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+241-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:62:13-88
+242            android:directBootAware="false"
+242-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:63:13-44
+243            android:enabled="true"
+243-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:64:13-35
+244            android:exported="false" />
+244-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:65:13-37
+245        <receiver
+245-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:67:9-77:20
+246            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+246-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:68:13-106
+247            android:directBootAware="false"
+247-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:69:13-44
+248            android:enabled="false"
+248-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:70:13-36
+249            android:exported="false" >
+249-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:71:13-37
+250            <intent-filter>
+250-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:73:13-76:29
+251                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+251-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:74:17-87
+251-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:74:25-84
+252                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+252-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:75:17-90
+252-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:75:25-87
+253            </intent-filter>
+254        </receiver>
+255        <receiver
+255-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:78:9-88:20
+256            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+256-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:79:13-104
+257            android:directBootAware="false"
+257-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:80:13-44
+258            android:enabled="false"
+258-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:81:13-36
+259            android:exported="false" >
+259-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:82:13-37
+260            <intent-filter>
+260-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:84:13-87:29
+261                <action android:name="android.intent.action.BATTERY_OKAY" />
+261-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:85:17-77
+261-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:85:25-74
+262                <action android:name="android.intent.action.BATTERY_LOW" />
+262-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:86:17-76
+262-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:86:25-73
+263            </intent-filter>
+264        </receiver>
+265        <receiver
+265-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:89:9-99:20
+266            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+266-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:90:13-104
+267            android:directBootAware="false"
+267-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:91:13-44
+268            android:enabled="false"
+268-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:92:13-36
+269            android:exported="false" >
+269-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:93:13-37
+270            <intent-filter>
+270-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:95:13-98:29
+271                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+271-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:96:17-83
+271-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:96:25-80
+272                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+272-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:97:17-82
+272-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:97:25-79
+273            </intent-filter>
+274        </receiver>
+275        <receiver
+275-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:100:9-109:20
+276            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+276-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:101:13-103
+277            android:directBootAware="false"
+277-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:102:13-44
+278            android:enabled="false"
+278-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:103:13-36
+279            android:exported="false" >
+279-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:104:13-37
+280            <intent-filter>
+280-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:106:13-108:29
+281                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+281-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:107:17-79
+281-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:107:25-76
+282            </intent-filter>
+283        </receiver>
+284        <receiver
+284-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:110:9-121:20
+285            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+285-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:111:13-88
+286            android:directBootAware="false"
+286-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:112:13-44
+287            android:enabled="false"
+287-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:113:13-36
+288            android:exported="false" >
+288-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:114:13-37
+289            <intent-filter>
+289-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:116:13-120:29
+290                <action android:name="android.intent.action.BOOT_COMPLETED" />
+290-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:105:17-78
+290-->/mnt/projects/builds/ntfy-android/app/src/main/AndroidManifest.xml:105:25-76
+291                <action android:name="android.intent.action.TIME_SET" />
+291-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:118:17-73
+291-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:118:25-70
+292                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+292-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:119:17-81
+292-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:119:25-78
+293            </intent-filter>
+294        </receiver>
+295        <receiver
+295-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:122:9-131:20
+296            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+296-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:123:13-99
+297            android:directBootAware="false"
+297-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:124:13-44
+298            android:enabled="@bool/enable_system_alarm_service_default"
+298-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:125:13-72
+299            android:exported="false" >
+299-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:126:13-37
+300            <intent-filter>
+300-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:128:13-130:29
+301                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+301-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:129:17-98
+301-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:129:25-95
+302            </intent-filter>
+303        </receiver>
+304        <receiver
+304-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:132:9-142:20
+305            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+305-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:133:13-78
+306            android:directBootAware="false"
+306-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:134:13-44
+307            android:enabled="true"
+307-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:135:13-35
+308            android:exported="true"
+308-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:136:13-36
+309            android:permission="android.permission.DUMP" >
+309-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:137:13-57
+310            <intent-filter>
+310-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:139:13-141:29
+311                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+311-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:140:17-88
+311-->[androidx.work:work-runtime:2.8.1] /home/ssfdre38/.gradle/caches/8.13/transforms/7f1d7a5de5fc6185d68e85da57f2ec57/transformed/work-runtime-2.8.1/AndroidManifest.xml:140:25-85
+312            </intent-filter>
+313        </receiver>
+314
+315        <uses-library
+315-->[androidx.window:window:1.0.0] /home/ssfdre38/.gradle/caches/8.13/transforms/628a9b57cd79bbf497832f3ede76632a/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
+316            android:name="androidx.window.extensions"
+316-->[androidx.window:window:1.0.0] /home/ssfdre38/.gradle/caches/8.13/transforms/628a9b57cd79bbf497832f3ede76632a/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
+317            android:required="false" />
+317-->[androidx.window:window:1.0.0] /home/ssfdre38/.gradle/caches/8.13/transforms/628a9b57cd79bbf497832f3ede76632a/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
+318        <uses-library
+318-->[androidx.window:window:1.0.0] /home/ssfdre38/.gradle/caches/8.13/transforms/628a9b57cd79bbf497832f3ede76632a/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
+319            android:name="androidx.window.sidecar"
+319-->[androidx.window:window:1.0.0] /home/ssfdre38/.gradle/caches/8.13/transforms/628a9b57cd79bbf497832f3ede76632a/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
+320            android:required="false" />
+320-->[androidx.window:window:1.0.0] /home/ssfdre38/.gradle/caches/8.13/transforms/628a9b57cd79bbf497832f3ede76632a/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
+321
+322        <service
+322-->[androidx.room:room-runtime:2.6.1] /home/ssfdre38/.gradle/caches/8.13/transforms/3c46320dd19d99f7bab95dfd141203fa/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+323            android:name="androidx.room.MultiInstanceInvalidationService"
+323-->[androidx.room:room-runtime:2.6.1] /home/ssfdre38/.gradle/caches/8.13/transforms/3c46320dd19d99f7bab95dfd141203fa/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+324            android:directBootAware="true"
+324-->[androidx.room:room-runtime:2.6.1] /home/ssfdre38/.gradle/caches/8.13/transforms/3c46320dd19d99f7bab95dfd141203fa/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+325            android:exported="false" />
+325-->[androidx.room:room-runtime:2.6.1] /home/ssfdre38/.gradle/caches/8.13/transforms/3c46320dd19d99f7bab95dfd141203fa/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+326
+327        <provider
+327-->[com.squareup.picasso:picasso:2.71828] /home/ssfdre38/.gradle/caches/8.13/transforms/d91bb69194ae2b60346959f4122b0757/transformed/picasso-2.71828/AndroidManifest.xml:8:9-11:40
+328            android:name="com.squareup.picasso.PicassoProvider"
+328-->[com.squareup.picasso:picasso:2.71828] /home/ssfdre38/.gradle/caches/8.13/transforms/d91bb69194ae2b60346959f4122b0757/transformed/picasso-2.71828/AndroidManifest.xml:9:13-64
+329            android:authorities="io.heckel.ntfy.com.squareup.picasso"
+329-->[com.squareup.picasso:picasso:2.71828] /home/ssfdre38/.gradle/caches/8.13/transforms/d91bb69194ae2b60346959f4122b0757/transformed/picasso-2.71828/AndroidManifest.xml:10:13-72
+330            android:exported="false" />
+330-->[com.squareup.picasso:picasso:2.71828] /home/ssfdre38/.gradle/caches/8.13/transforms/d91bb69194ae2b60346959f4122b0757/transformed/picasso-2.71828/AndroidManifest.xml:11:13-37
+331
+332        <receiver
+332-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+333            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+333-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+334            android:directBootAware="false"
+334-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+335            android:enabled="true"
+335-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+336            android:exported="true"
+336-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+337            android:permission="android.permission.DUMP" >
+337-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+338            <intent-filter>
+338-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+339                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+339-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+339-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+340            </intent-filter>
+341            <intent-filter>
+341-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+342                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+342-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+342-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+343            </intent-filter>
+344            <intent-filter>
+344-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+345                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+345-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+345-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+346            </intent-filter>
+347            <intent-filter>
+347-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+348                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+348-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+348-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/ssfdre38/.gradle/caches/8.13/transforms/1cb42a03019aed9811ca149b519c85ce/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+349            </intent-filter>
+350        </receiver>
+351    </application>
+352
+353</manifest>

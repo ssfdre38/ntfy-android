@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d новое уведомление</item>
+    <item quantity="few">%d новых уведомления</item>
+    <item quantity="many">%d новых уведомлений</item>
+    <item quantity="other">%d нового уведомления</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Перейти на главный экран"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Перейти вверх"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Ещё"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Готово"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Показать все"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Выберите приложение"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"ВЫКЛ"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ВКЛ"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"Delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Ввод"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Fn +"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta +"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift +"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"Пробел"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym +"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Меню +"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Введите запрос"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Удалить запрос"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Поисковый запрос"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Поиск"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Отправить запрос"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Голосовой поиск"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Поделиться с помощью"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Поделиться с помощью <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Свернуть"</string>
+    <string name="add_dialog_base_urls_dropdown_choose">Выберите URL-адрес сервера</string>
+    <string name="add_dialog_base_urls_dropdown_clear">Очистить URL-адрес сервера</string>
+    <string name="add_dialog_button_back">Назад</string>
+    <string name="add_dialog_button_cancel">Отмена</string>
+    <string name="add_dialog_button_login">Войти</string>
+    <string name="add_dialog_button_subscribe">Подписаться</string>
+    <string name="add_dialog_description_below">Темы не могут быть защищены паролем. Используйте название, которое сложно угадать. После подписки вы сможете отправлять уведомления через PUT/POST.</string>
+    <string name="add_dialog_error_connection_failed">Ошибка связи: %1$s</string>
+    <string name="add_dialog_foreground_description">Мгновенная доставка включена для хостов кроме %1$s.</string>
+    <string name="add_dialog_instant_delivery">Мгновенная доставка в спящем режиме</string>
+    <string name="add_dialog_instant_delivery_description">Гарантирует мгновенную доставку сообщений, даже если устройство неактивно.</string>
+    <string name="add_dialog_login_description">Эта тема требует авторизации. Пожалуйста, введите имя пользователя и пароль.</string>
+    <string name="add_dialog_login_error_not_authorized">Вход не удался. Пользователь %1$s не авторизован.</string>
+    <string name="add_dialog_login_new_user">Новый пользователь</string>
+    <string name="add_dialog_login_password_hint">Пароль</string>
+    <string name="add_dialog_login_title">Требуется вход в аккаунт</string>
+    <string name="add_dialog_login_username_hint">Имя пользователя</string>
+    <string name="add_dialog_title">Подписаться на тему</string>
+    <string name="add_dialog_topic_name_hint">Название темы, например phils_alerts</string>
+    <string name="add_dialog_use_another_server">Использовать другой сервер</string>
+    <string name="add_dialog_use_another_server_description">Введите URL-адрес сервиса чтобы подписаться на темы с других серверов.</string>
+    <string name="bottomsheet_action_collapse">Свернуть нижний экран</string>
+    <string name="bottomsheet_action_expand">Развернуть нижний экран</string>
+    <string name="bottomsheet_action_expand_halfway">Развернуть наполовину</string>
+    <string name="bottomsheet_drag_handle_clicked">Двойное нажатие на маркер перемещения</string>
+    <string name="bottomsheet_drag_handle_content_description">Маркер перемещения</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Ответить"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Видео"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Отклонить"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Завершить"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Входящий вызов"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Текущий вызов"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Фильтрация входящего вызова"</string>
+    <string name="channel_notifications_default_name">Стандартный приоритет</string>
+    <string name="channel_notifications_group_default_name">По умолчанию</string>
+    <string name="channel_notifications_high_name">Высокий приоритет</string>
+    <string name="channel_notifications_low_name">Низкий приоритет</string>
+    <string name="channel_notifications_max_name">Максимальный приоритет</string>
+    <string name="channel_notifications_min_name">Минимальный приоритет</string>
+    <string name="channel_subscriber_notification_instant_text">Подписан на темы с мгновенной доставкой</string>
+    <string name="channel_subscriber_notification_instant_text_five">Подписан на пять тем с мгновенной доставкой</string>
+    <string name="channel_subscriber_notification_instant_text_four">Подписан на четыре темы с мгновенной доставкой</string>
+    <string name="channel_subscriber_notification_instant_text_more">Подписан на %1$d тем с мгновенной доставкой</string>
+    <string name="channel_subscriber_notification_instant_text_one">Подписан на одну тему с мгновенной доставкой</string>
+    <string name="channel_subscriber_notification_instant_text_six">Подписан на шесть тем с мгновенной доставкой</string>
+    <string name="channel_subscriber_notification_instant_text_three">Подписан на три темы с мгновенной доставкой</string>
+    <string name="channel_subscriber_notification_instant_text_two">Подписан на две темы с мгновенной доставкой</string>
+    <string name="channel_subscriber_notification_noinstant_text">Подписан на темы</string>
+    <string name="channel_subscriber_notification_noinstant_text_five">Подписан на пять тем</string>
+    <string name="channel_subscriber_notification_noinstant_text_four">Подписан на четыре темы</string>
+    <string name="channel_subscriber_notification_noinstant_text_more">Подписан на %1$d тем</string>
+    <string name="channel_subscriber_notification_noinstant_text_one">Подписан на одну тему</string>
+    <string name="channel_subscriber_notification_noinstant_text_six">Подписан на шесть тем</string>
+    <string name="channel_subscriber_notification_noinstant_text_three">Подписан на три темы</string>
+    <string name="channel_subscriber_notification_noinstant_text_two">Подписан на две темы</string>
+    <string name="channel_subscriber_notification_title">Ожидаются входящие уведомления</string>
+    <string name="channel_subscriber_service_name">Сервис подписки</string>
+    <string name="character_counter_content_description">Введено символов: %1$d из %2$d</string>
+    <string name="character_counter_overflowed_content_description">Превышено ограничение на количество символов (%1$d из %2$d)</string>
+    <string name="clear_text_end_icon_content_description">Очистить текстовое поле</string>
+    <string msgid="6083905920877235314" name="copy">"Копировать"</string>
+    <string name="detail_action_mode_delete_dialog_cancel">Отмена</string>
+    <string name="detail_action_mode_delete_dialog_message">Удалить выбранные уведомления навсегда\?</string>
+    <string name="detail_action_mode_delete_dialog_permanently_delete">Удалить навсегда</string>
+    <string name="detail_action_mode_menu_copy">Скопировать</string>
+    <string name="detail_action_mode_menu_delete">Удалить</string>
+    <string name="detail_clear_dialog_cancel">Отмена</string>
+    <string name="detail_clear_dialog_message">Удалить все уведомления в этой теме\?</string>
+    <string name="detail_clear_dialog_permanently_delete">Удалить навсегда</string>
+    <string name="detail_copied_to_clipboard_message">Скопировано в буфер обмена</string>
+    <string name="detail_deep_link_subscribed_toast_message">Подписались на тему %1$s</string>
+    <string name="detail_delete_dialog_cancel">Отмена</string>
+    <string name="detail_delete_dialog_message">Отписаться от этой темы и удалить все полученные уведомления\?</string>
+    <string name="detail_delete_dialog_permanently_delete">Удалить навсегда</string>
+    <string name="detail_how_to_example">Пример (используя curl):<br/><tt>$ curl -d \"Привет\" %1$s</tt></string>
+    <string name="detail_how_to_intro">Чтобы отправить уведомления на данную тему, просто отправьте PUT or POST на URL-адрес темы.</string>
+    <string name="detail_how_to_link">Подробные инструкции на сайте ntfy.sh и в документации.</string>
+    <string name="detail_instant_delivery_disabled">Моментальная доставка выключена</string>
+    <string name="detail_instant_delivery_enabled">Моментальная доставка включена</string>
+    <string name="detail_item_cannot_delete">Невозможно удалить вложение: %1$s</string>
+    <string name="detail_item_cannot_download">Скачанный файл не открывается. Срок ссылки истёк, и локальный файл не найден.</string>
+    <string name="detail_item_cannot_open">Вложение не открывается: %1$s</string>
+    <string name="detail_item_cannot_open_apk">Установка приложений через уведомления больше не поддерживается. Скачайте приложение через браузер. Подробности смотрите в отчёте ntfy #531.</string>
+    <string name="detail_item_cannot_open_not_found">Вложение не открывается: Возможно файл был удалёл, либо нет установленного приложения, способного открыть файл.</string>
+    <string name="detail_item_cannot_open_url">URL-адрес не открывается: %1$s</string>
+    <string name="detail_item_cannot_save">Невозможно сохранить вложение: %1$s</string>
+    <string name="detail_item_download_failed">Невозможно скачать вложение: %1$s</string>
+    <string name="detail_item_download_info_deleted">удалено</string>
+    <string name="detail_item_download_info_deleted_expired">удалено, срок действия ссылки истёк</string>
+    <string name="detail_item_download_info_deleted_expires_x">удалено, срок действия ссылки истекает %1$s</string>
+    <string name="detail_item_download_info_download_failed">не удалось скачать</string>
+    <string name="detail_item_download_info_download_failed_expired">не удалось скачать, срок действия ссылки истёк</string>
+    <string name="detail_item_download_info_download_failed_expires_x">не удалось скачать, срок действия ссылки истекает %1$s</string>
+    <string name="detail_item_download_info_downloading_x_percent">%1$d%% скачан</string>
+    <string name="detail_item_download_info_not_downloaded">не скачано</string>
+    <string name="detail_item_download_info_not_downloaded_expired">не скачано, срок действия ссылки истёк</string>
+    <string name="detail_item_download_info_not_downloaded_expires_x">не скачано, истекает срок действия %1$s</string>
+    <string name="detail_item_menu_cancel">Отменить скачивание</string>
+    <string name="detail_item_menu_copy_contents">Скопировать уведомление</string>
+    <string name="detail_item_menu_copy_contents_copied">Уведомление скопировано</string>
+    <string name="detail_item_menu_copy_url">Скопировать URL-адрес</string>
+    <string name="detail_item_menu_copy_url_copied">URL-адрес скопирован</string>
+    <string name="detail_item_menu_delete">Удалить файл</string>
+    <string name="detail_item_menu_download">Скачать файл</string>
+    <string name="detail_item_menu_open">Открыть файл</string>
+    <string name="detail_item_menu_save_file">Сохранить файл</string>
+    <string name="detail_item_saved_successfully">Сохранён как \"%1$s\" в папке \"Downloads\"</string>
+    <string name="detail_item_snack_deleted">Уведомление удалено</string>
+    <string name="detail_item_snack_undo">Отменить</string>
+    <string name="detail_item_tags">Тэги: %1$s</string>
+    <string name="detail_menu_clear">Очистить все уведомления</string>
+    <string name="detail_menu_copy_url">Скопировать URL-адрес темы</string>
+    <string name="detail_menu_disable_instant">Выключить моментальную доставку</string>
+    <string name="detail_menu_enable_instant">Включить моментальную доставку</string>
+    <string name="detail_menu_notifications_disabled_forever">Уведомления отключены</string>
+    <string name="detail_menu_notifications_disabled_until">Уведомления отключены до %1$s</string>
+    <string name="detail_menu_notifications_enabled">Уведомления включены</string>
+    <string name="detail_menu_settings">Настройки подписок</string>
+    <string name="detail_menu_test">Отправить тестовое уведомление</string>
+    <string name="detail_menu_unsubscribe">Отписаться</string>
+    <string name="detail_no_notifications_text">Вам ещё не приходили уведомления для этой темы.</string>
+    <string name="detail_settings_about_header">Настройки темы</string>
+    <string name="detail_settings_about_topic_url_copied_to_clipboard_message">Скопирован в буфер обмена</string>
+    <string name="detail_settings_about_topic_url_title">URL-адрес темы</string>
+    <string name="detail_settings_appearance_display_name_default_summary">%1$s (по умолчанию)</string>
+    <string name="detail_settings_appearance_display_name_message">Выставить произвольный псевдоним для этой подписки. Оставьте пустым чтобы использовать значение по умолчанию (%1$s).</string>
+    <string name="detail_settings_appearance_display_name_title">Псевдоним</string>
+    <string name="detail_settings_appearance_header">Внешний вид</string>
+    <string name="detail_settings_appearance_icon_error_saving">Невозможно сохранить иконку: %1$s</string>
+    <string name="detail_settings_appearance_icon_remove_summary">Иконка используемая в уведомлениях от этой темы</string>
+    <string name="detail_settings_appearance_icon_remove_title">Иконка подписки (коснитесь, чтобы удалить)</string>
+    <string name="detail_settings_appearance_icon_set_summary">Использовать иконку для отображения в уведомлениях</string>
+    <string name="detail_settings_appearance_icon_set_title">Иконка подписки</string>
+    <string name="detail_settings_global_setting_suffix">использует глобальное значение</string>
+    <string name="detail_settings_global_setting_title">Использовать глобальное значение</string>
+    <string name="detail_settings_notifications_dedicated_channels_summary_off">Используются настройки по умолчанию (звуки, игнорирование режима \"не беспокоить\", и прочее)</string>
+    <string name="detail_settings_notifications_dedicated_channels_summary_on">Используются пользовательские настройки для этой подписки</string>
+    <string name="detail_settings_notifications_dedicated_channels_title">Пользовательские настройки уведомлений</string>
+    <string name="detail_settings_notifications_insistent_max_priority_list_item_disabled">Уведомлять только один раз</string>
+    <string name="detail_settings_notifications_insistent_max_priority_list_item_enabled">Продолжать уведомлять</string>
+    <string name="detail_settings_notifications_instant_summary_off">Уведомления будут доставляться с помощью Firebase. Могут быть задержки с доставкой, но потребляется меньше энергии.</string>
+    <string name="detail_settings_notifications_instant_summary_on">Уведомления доставляются сразу. Требует foreground сервис и потребляет больше энергии.</string>
+    <string name="detail_settings_notifications_instant_title">Мгновенная доставка</string>
+    <string name="detail_settings_notifications_open_channels_summary">Игнорирование режима \"не беспокоить\", звуки и прочее.</string>
+    <string name="detail_settings_notifications_open_channels_title">Настройки уведомлений</string>
+    <string name="detail_settings_title">Настройки подписок</string>
+    <string name="detail_test_message">Это тестовое уведомление от Android-приложения ntfy. Оно имеет уровень приоритета %1$d. Если вы отправите ещё одно, оно может выглядеть по-другому.</string>
+    <string name="detail_test_message_error">Не получилось отправить сообщение: %1$s</string>
+    <string name="detail_test_message_error_too_large">Не получилось отправить сообщение: Вложение слишком большое.</string>
+    <string name="detail_test_message_error_unauthorized_anon">Не получилось отправить сообщение: Анонимная публикация запрещена.</string>
+    <string name="detail_test_message_error_unauthorized_user">Не получилось отправить сообщение: Пользователь \"%1$s\" не авторизован.</string>
+    <string name="detail_test_title">Тест: Вы можете установить заголовок, если хотите.</string>
+    <string name="error_icon_content_description">Ошибка</string>
+    <string msgid="2427401033573778270" name="expand_button_title">"Дополнительно"</string>
+    <string name="exposed_dropdown_menu_content_description">Показать раскрывающееся меню</string>
+    <string name="icon_content_description">Значок диалогового окна</string>
+    <string name="item_view_role_description">Вкладка</string>
+    <string name="main_action_bar_title">Темы подписок</string>
+    <string name="main_action_mode_delete_dialog_cancel">Отмена</string>
+    <string name="main_action_mode_delete_dialog_message">Отписаться от выбранных тем и навсегда удалить все уведомления\?</string>
+    <string name="main_action_mode_delete_dialog_permanently_delete">Удалить навсегда</string>
+    <string name="main_action_mode_menu_unsubscribe">Отписаться</string>
+    <string name="main_add_button_description">Добавить подписку</string>
+    <string name="main_banner_battery_button_dismiss">Закрыть</string>
+    <string name="main_banner_battery_button_fix_now">Исправить</string>
+    <string name="main_banner_battery_button_remind_later">Спросить позже</string>
+    <string name="main_banner_battery_text">Оптимизация батареи должна быть выключена, чтобы избежать проблем с доставкой уведомлений.</string>
+    <string name="main_banner_websocket_button_dismiss">Закрыть</string>
+    <string name="main_banner_websocket_button_enable_now">Включить сейчас</string>
+    <string name="main_banner_websocket_button_remind_later">Спросить позже</string>
+    <string name="main_banner_websocket_text">Мы рекомендуем использовать WebSockets для подключения к Вашему серверу; это продлит время работы от батареи, но может потребовать <a href="https://ntfy.sh/docs/config/#nginxapache2caddy">дополнительной настройки прокси-сервера</a>. Эта опция может быть включена или выключена в Настройках.</string>
+    <string name="main_how_to_intro">Нажмите \"+\", чтобы создать или подписаться на тему. Вы будете получать уведомления на вашем устройстве при отправке сообщений через PUT или POST-запросы.</string>
+    <string name="main_how_to_link">Подробные инструкции можно найти на ntfy.sh или в документации.</string>
+    <string name="main_item_date_yesterday">вчера</string>
+    <string name="main_item_status_reconnecting">повторное подключение …</string>
+    <string name="main_item_status_text_not_one">%1$d уведомлений</string>
+    <string name="main_item_status_text_one">%1$d уведомление</string>
+    <string name="main_item_status_unified_push">%1$s (UnifiedPush)</string>
+    <string name="main_menu_docs_title">Документация</string>
+    <string name="main_menu_notifications_disabled_forever">Уведомления отключены</string>
+    <string name="main_menu_notifications_disabled_until">Уведомления отключены до %1$s</string>
+    <string name="main_menu_notifications_enabled">Уведомления включены</string>
+    <string name="main_menu_rate_title">Оцените приложение ⭐</string>
+    <string name="main_menu_report_bug_title">Сообщить об ошибке</string>
+    <string name="main_menu_settings_title">Настройки</string>
+    <string name="main_no_subscriptions_text">Похоже, у вас ещё нет подписок.</string>
+    <string name="main_unified_push_toast">Эта подписка управляется %1$s через UnifiedPush</string>
+    <string name="material_clock_toggle_content_description">Выберите AM (до полудня) или PM (после полудня)</string>
+    <string name="material_hour_24h_suffix">%1$s ч.</string>
+    <string name="material_hour_selection">Выберите час</string>
+    <string name="material_hour_suffix">%1$s ч.</string>
+    <string name="material_minute_selection">Выберите минуты</string>
+    <string name="material_minute_suffix">%1$s мин.</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Чтобы ввести время, перейдите в режим часов.</string>
+    <string name="material_timepicker_hour">Час</string>
+    <string name="material_timepicker_minute">Минуты</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Выбор времени</string>
+    <string name="material_timepicker_text_input_mode_description">Чтобы ввести время, перейдите в режим ввода текста.</string>
+    <string name="mtrl_badge_numberless_content_description">Новое уведомление</string>
+    <string name="mtrl_chip_close_icon_content_description">Удалить \"%1$s\"</string>
+    <string name="mtrl_exceed_max_badge_number_content_description" ns2:ignore="PluralsCandidate">Новых уведомлений больше %1$d</string>
+    <string name="mtrl_picker_a11y_next_month">Перейти к следующему месяцу</string>
+    <string name="mtrl_picker_a11y_prev_month">Перейти к предыдущему месяцу</string>
+    <string name="mtrl_picker_announce_current_selection">Выбранный элемент: %1$s</string>
+    <string name="mtrl_picker_cancel">Отмена</string>
+    <string name="mtrl_picker_confirm">ОК</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Выберите дату</string>
+    <string name="mtrl_picker_date_header_unselected">Выбранная дата</string>
+    <string name="mtrl_picker_day_of_week_column_header">Столбец со днями недели: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Недействительный формат.</string>
+    <string name="mtrl_picker_invalid_format_example">Пример: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Используйте: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Недопустимый диапазон.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Перейти к %1$s году</string>
+    <string name="mtrl_picker_out_of_range">Вне диапазона: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Дата начала – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – дата окончания</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Выберите диапазон дат</string>
+    <string name="mtrl_picker_range_header_unselected">Дата начала – дата окончания</string>
+    <string name="mtrl_picker_save">Сохранить</string>
+    <string name="mtrl_picker_text_input_date_hint">Дата</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Дата окончания</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Дата начала</string>
+    <string name="mtrl_picker_text_input_day_abbr">д</string>
+    <string name="mtrl_picker_text_input_month_abbr">м</string>
+    <string name="mtrl_picker_text_input_year_abbr">г</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Перейти в режим выбора дней</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Нажмите, чтобы перейти к выбору дня</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Перейти в режим ввода текста</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Нажмите, чтобы перейти к выбору года</string>
+    <string name="mtrl_timepicker_cancel">Отмена</string>
+    <string name="mtrl_timepicker_confirm">ОК</string>
+    <string msgid="6573031135582639649" name="not_set">"Не указано"</string>
+    <string name="notification_dialog_1h">1 час</string>
+    <string name="notification_dialog_2h">2 часа</string>
+    <string name="notification_dialog_30min">30 минут</string>
+    <string name="notification_dialog_8h">8 часов</string>
+    <string name="notification_dialog_cancel">Отмена</string>
+    <string name="notification_dialog_enabled_toast_message">Уведомления разрешены</string>
+    <string name="notification_dialog_forever">До разрешения</string>
+    <string name="notification_dialog_muted_forever_toast_message">Уведомления отключены</string>
+    <string name="notification_dialog_muted_until_toast_message">Уведомления отключены до %1$s</string>
+    <string name="notification_dialog_save">Сохранить</string>
+    <string name="notification_dialog_show_all">Показать все уведомления</string>
+    <string name="notification_dialog_title">Отключить уведомления</string>
+    <string name="notification_dialog_tomorrow">До завтра</string>
+    <string name="notification_popup_action_browse">Выбрать</string>
+    <string name="notification_popup_action_cancel">Отмена</string>
+    <string name="notification_popup_action_download">Скачать</string>
+    <string name="notification_popup_action_open">Открыть</string>
+    <string name="notification_popup_file">%1$s
+\nФайл: %2$s</string>
+    <string name="notification_popup_file_download_failed">%1$s
+\nФайл: %2$s, не удалось скачать</string>
+    <string name="notification_popup_file_download_successful">%1$s
+\nФайл: %2$s, скачан</string>
+    <string name="notification_popup_file_downloading">Скачивается %1$s, %2$d%%
+\n%3$s</string>
+    <string name="notification_popup_user_action_failed">%1$s не удалась: %2$s</string>
+    <string name="password_toggle_content_description">Показать пароль</string>
+    <string msgid="6685851473431805375" name="preference_copied">"Текст \"<ns1:g id="SUMMARY">%1$s</ns1:g>\" скопирован в буфер обмена"</string>
+    <string name="refresh_message_error">Не получилось обновить %1$d подписок
+\n
+\n%2$s</string>
+    <string name="refresh_message_error_one">Не получилось обновить подписку: %1$s</string>
+    <string name="refresh_message_no_results">Всё обновлено</string>
+    <string name="refresh_message_result">%1$d уведомлений получено</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Поиск"</string>
+    <string name="settings_about_header">О программе</string>
+    <string name="settings_about_version_copied_to_clipboard_message">Скопировано в буфер обмена</string>
+    <string name="settings_about_version_format">ntfy %1$s (%2$s)</string>
+    <string name="settings_about_version_title">Версия</string>
+    <string name="settings_advanced_broadcast_summary_disabled">Приложения не могут получать уведомления как вещания</string>
+    <string name="settings_advanced_broadcast_summary_enabled">Приложения могут получать входящие уведомления как вещания</string>
+    <string name="settings_advanced_broadcast_title">Вещать сообщения</string>
+    <string name="settings_advanced_clear_logs_deleted_toast">Журналы удалены</string>
+    <string name="settings_advanced_clear_logs_summary">Удалить ранее записанные журналы, и начать сначала</string>
+    <string name="settings_advanced_clear_logs_title">Очистить журналы</string>
+    <string name="settings_advanced_connection_protocol_entry_jsonhttp">JSON поток поверх HTTP</string>
+    <string name="settings_advanced_connection_protocol_entry_ws">WebSockets</string>
+    <string name="settings_advanced_connection_protocol_summary_jsonhttp">Использовать JSON-поток через HTTP чтобы подключаться к серверу. Это надежный метод, но он может потреблять больше энергии.</string>
+    <string name="settings_advanced_connection_protocol_summary_ws">Использовать WebSockets для подключения к серверу. Это рекомендуемый метод, но может потребовать дополнительной настройки прокси-сервера.</string>
+    <string name="settings_advanced_connection_protocol_title">Протокол соединения</string>
+    <string name="settings_advanced_export_logs_copied_logs">Журналы скопированы в буфер обмена</string>
+    <string name="settings_advanced_export_logs_copied_url">Журналы загружены, и URL скопирован</string>
+    <string name="settings_advanced_export_logs_entry_copy_original">Скопировать в буфер обмена</string>
+    <string name="settings_advanced_export_logs_entry_copy_scrubbed">Скопировать в буфер обмена (с цензурой)</string>
+    <string name="settings_advanced_export_logs_entry_upload_original">Загрузить и скопировать ссылку</string>
+    <string name="settings_advanced_export_logs_entry_upload_scrubbed">Загрузить и скопировать ссылку (с цензурой)</string>
+    <string name="settings_advanced_export_logs_error_uploading">Не удалось загрузить журналы: %1$s</string>
+    <string name="settings_advanced_export_logs_scrub_dialog_button_ok">ОК</string>
+    <string name="settings_advanced_export_logs_scrub_dialog_empty">Никакие темы/доменные имена не были заменены. Может быть, у вас нет никаких подписок\?</string>
+    <string name="settings_advanced_export_logs_scrub_dialog_text">Следующие темы/доменные имена были заменены названиями фруктов, так что вы можете поделиться журналом без беспокойства:
+\n
+\n%1$s
+\n
+\nПароли скрыты, но не перечислены здесь.</string>
+    <string name="settings_advanced_export_logs_summary">Скопировать журналы в буфер обмена, или загрузить на nopaste.net (под управлением разработчика ntfy). Доменные имена и темы можно скрыть, уведомления - нет.</string>
+    <string name="settings_advanced_export_logs_title">Скопировать/загрузить журналы</string>
+    <string name="settings_advanced_export_logs_uploading">Загрузка журнала…</string>
+    <string name="settings_advanced_header">Дополнительно</string>
+    <string name="settings_advanced_record_logs_summary_disabled">Включить журналирование, чтобы вы могли поделиться журналами позже для диагностики неполадок.</string>
+    <string name="settings_advanced_record_logs_summary_enabled">Журналирование (макс. 1000 записей) на устройство …</string>
+    <string name="settings_advanced_record_logs_title">Записывать журналы</string>
+    <string name="settings_advanced_unifiedpush_summary_disabled">ntfy не будет действовать как сервис доставки UnifiedPush</string>
+    <string name="settings_advanced_unifiedpush_summary_enabled">ntfy будет действовать как сервис доставки UnifiedPush</string>
+    <string name="settings_advanced_unifiedpush_title">Включить UnifiedPush</string>
+    <string name="settings_backup_restore_backup_entry_everything">Всё</string>
+    <string name="settings_backup_restore_backup_entry_everything_no_users">Всё, кроме пользователей</string>
+    <string name="settings_backup_restore_backup_entry_settings_only">Только настройки</string>
+    <string name="settings_backup_restore_backup_failed">Резервное копирование провалено: %1$s</string>
+    <string name="settings_backup_restore_backup_successful">Создана резервная копия</string>
+    <string name="settings_backup_restore_backup_summary">Экспортировать настройки, уведомления и пользователей</string>
+    <string name="settings_backup_restore_backup_title">Сохранить настройки в файл</string>
+    <string name="settings_backup_restore_header">Резервное копирование</string>
+    <string name="settings_backup_restore_restore_failed">Восстановление провалено: %1$s</string>
+    <string name="settings_backup_restore_restore_successful">Восстановление успешно завершено</string>
+    <string name="settings_backup_restore_restore_summary">Импортировать настройки, уведомления и пользователей</string>
+    <string name="settings_backup_restore_restore_title">Восстановить из файла</string>
+    <string name="settings_general_dark_mode_entry_dark">Тёмная тема</string>
+    <string name="settings_general_dark_mode_entry_light">Светлая тема</string>
+    <string name="settings_general_dark_mode_entry_system">Использовать системные настройки по умолчанию</string>
+    <string name="settings_general_dark_mode_summary_dark">Тёмная тема включена. Вы вампир\?</string>
+    <string name="settings_general_dark_mode_summary_light">Светлая тема включена</string>
+    <string name="settings_general_dark_mode_summary_system">Используются системные настройки по умолчанию</string>
+    <string name="settings_general_dark_mode_title">Тёмная тема</string>
+    <string name="settings_general_default_base_url_default_summary">%1$s (по умолчанию)</string>
+    <string name="settings_general_default_base_url_message">Введите базовый URL вашего сервера, чтобы использовать его по умолчанию при подписке на новые темы и/или публикацию в темы.</string>
+    <string name="settings_general_default_base_url_title">Сервер по умолчанию</string>
+    <string name="settings_general_header">Общие</string>
+    <string name="settings_general_users_prefs_title">Пользователи</string>
+    <string name="settings_general_users_prefs_user_add">Добавить пользователей</string>
+    <string name="settings_general_users_prefs_user_add_summary">Создать нового пользователя для нового сервера</string>
+    <string name="settings_general_users_prefs_user_add_title">Добавить нового пользователя</string>
+    <string name="settings_general_users_prefs_user_not_used">Не использован в каких-либо темах</string>
+    <string name="settings_general_users_prefs_user_used_by_many">Использован темами %1$s</string>
+    <string name="settings_general_users_prefs_user_used_by_one">Использован темой %1$s</string>
+    <string name="settings_general_users_summary">Добавить/удалить пользователей из защищённых тем</string>
+    <string name="settings_general_users_title">Управление пользователями</string>
+    <string name="settings_notifications_auto_delete_never">Никогда</string>
+    <string name="settings_notifications_auto_delete_one_day">Через один день</string>
+    <string name="settings_notifications_auto_delete_one_month">Через месяц</string>
+    <string name="settings_notifications_auto_delete_one_week">Через неделю</string>
+    <string name="settings_notifications_auto_delete_summary_never">Никогда автоматически не удалять уведомления</string>
+    <string name="settings_notifications_auto_delete_summary_one_day">Автоматически удалять уведомления через один день</string>
+    <string name="settings_notifications_auto_delete_summary_one_month">Автоматически удалять уведомления через месяц</string>
+    <string name="settings_notifications_auto_delete_summary_one_week">Автоматически удалять уведомления через неделю</string>
+    <string name="settings_notifications_auto_delete_summary_three_days">Автоматически удалять уведомления через 3 дня</string>
+    <string name="settings_notifications_auto_delete_summary_three_months">Автоматически удалять уведомления через 3 месяца</string>
+    <string name="settings_notifications_auto_delete_three_days">Через три дня</string>
+    <string name="settings_notifications_auto_delete_three_months">Через три месяца</string>
+    <string name="settings_notifications_auto_delete_title">Удалять уведомления</string>
+    <string name="settings_notifications_auto_download_100k">Если меньше 100 кб</string>
+    <string name="settings_notifications_auto_download_10m">Если меньше 10 Мб</string>
+    <string name="settings_notifications_auto_download_1m">Если меньше 1 Мб</string>
+    <string name="settings_notifications_auto_download_500k">Если меньше 500 Кб</string>
+    <string name="settings_notifications_auto_download_50m">Если меньше 50 Мб</string>
+    <string name="settings_notifications_auto_download_5m">Если меньше 5 Мб</string>
+    <string name="settings_notifications_auto_download_always">Всегда всё скачивать автоматически</string>
+    <string name="settings_notifications_auto_download_never">Никогда ничего не скачивать автоматически</string>
+    <string name="settings_notifications_auto_download_summary_always">Автоматически скачивать все вложения</string>
+    <string name="settings_notifications_auto_download_summary_never">Никогда автоматически не скачивать вложения</string>
+    <string name="settings_notifications_auto_download_summary_smaller_than_x">Автоматически скачивать вложения до %1$s</string>
+    <string name="settings_notifications_auto_download_title">Скачать вложения</string>
+    <string name="settings_notifications_channel_prefs_summary">Управление режимом \"не беспокоить\", звуками и прочим.</string>
+    <string name="settings_notifications_channel_prefs_title">Настройки канала</string>
+    <string name="settings_notifications_header">Уведомления</string>
+    <string name="settings_notifications_insistent_max_priority_summary_disabled">Уведомления с наивысшим приоритетом будут давать о себе знать только один раз</string>
+    <string name="settings_notifications_insistent_max_priority_summary_enabled">Уведомления с наивысшим приоритетом будут требовать внимания, пока не будут прочитаны</string>
+    <string name="settings_notifications_insistent_max_priority_title">Продолжать уведомлять при наивысшем приоритете</string>
+    <string name="settings_notifications_min_priority_default">Приоритет по умолчанию и выше</string>
+    <string name="settings_notifications_min_priority_high">Высокий приоритет и выше</string>
+    <string name="settings_notifications_min_priority_low">Низкий приоритет или выше</string>
+    <string name="settings_notifications_min_priority_max">Только максимальный приоритет</string>
+    <string name="settings_notifications_min_priority_min">Любой приоритет</string>
+    <string name="settings_notifications_min_priority_summary_any">Отображаются все уведомления</string>
+    <string name="settings_notifications_min_priority_summary_max">Показывать уведомления если приоритет равен 5 (максимальный)</string>
+    <string name="settings_notifications_min_priority_summary_x_or_higher">Показывать уведомления если приоритет %1$d(%2$s) или выше</string>
+    <string name="settings_notifications_min_priority_title">Самый низкий приоритет</string>
+    <string name="settings_notifications_muted_until_forever">Уведомления отключены, пока не будут разрешены</string>
+    <string name="settings_notifications_muted_until_show_all">Показываются все уведомления</string>
+    <string name="settings_notifications_muted_until_title">Отключить уведомления</string>
+    <string name="settings_notifications_muted_until_x">Уведомления отключены до %1$s</string>
+    <string name="settings_notifications_priority_default">по умолчанию</string>
+    <string name="settings_notifications_priority_high">высокий</string>
+    <string name="settings_notifications_priority_low">низкий</string>
+    <string name="settings_notifications_priority_max">максимальный</string>
+    <string name="settings_notifications_priority_min">минимальный</string>
+    <string name="settings_title">Настройки</string>
+    <string name="share_content_file_error">Невозможно получить информацию о файле: %1$s</string>
+    <string name="share_content_file_text">С вами поделились файлом</string>
+    <string name="share_content_image_error">Невозможно загрузить картинку: %1$s</string>
+    <string name="share_content_image_text">С вами поделились картинкой</string>
+    <string name="share_content_text_hint">Добавьте контент</string>
+    <string name="share_content_title">Предварительный просмотр сообщения</string>
+    <string name="share_menu_send">Поделиться</string>
+    <string name="share_successful">Сообщение опубликовано</string>
+    <string name="share_suggested_topics">Рекомендуемые темы</string>
+    <string name="share_title">Поделиться</string>
+    <string name="share_topic_title">Поделиться</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">">999"</string>
+    <string msgid="9167775378838880170" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="user_dialog_base_url_hint">Базовый URL службы</string>
+    <string name="user_dialog_button_add">Добавить пользователя</string>
+    <string name="user_dialog_button_cancel">Отмена</string>
+    <string name="user_dialog_button_delete">Удалить пользователя</string>
+    <string name="user_dialog_button_save">Сохранить</string>
+    <string name="user_dialog_description_add">Вы можете добавить здесь пользователя. Все темы на заданном сервере будут использовать этого пользователя.</string>
+    <string name="user_dialog_description_edit">Вы можете изменить имя или пароль выбранного пользователя, или удалить его.</string>
+    <string name="user_dialog_password_hint_add">Пароль</string>
+    <string name="user_dialog_password_hint_edit">Пароль (не изменится, если оставить пустым)</string>
+    <string name="user_dialog_title_add">Добавить пользователя</string>
+    <string name="user_dialog_title_edit">Редактировать пользователя</string>
+    <string name="user_dialog_username_hint">Имя пользователя</string>
+    <string msgid="3140233346420563315" name="v7_preference_off">"ВЫКЛ."</string>
+    <string msgid="89551595707643515" name="v7_preference_on">"ВКЛ."</string>
+</resources>
